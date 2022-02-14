@@ -10,15 +10,14 @@ showValues = function(){
         randomArray.push(Math.random())
         var para = []
         para[i] = document.createElement("p"); 
-        para[i].setAttribute("id", i)                // Create a <p> element
-        para[i].innerHTML = randomArray[i];                // Insert text
+        para[i].setAttribute("id", i)         // Create a <p> element
+        para[i].innerHTML = randomArray[i];   // Insert text
         document.getElementById("myDiv").appendChild(para[i]);
         }
 }
 
 sortValues = function(){
-    
-   
+
     function swap(arr,xp, yp){       
         var temp = arr[xp];
         arr[xp] = arr[yp];
@@ -29,8 +28,8 @@ sortValues = function(){
         p2.innerHTML = arr[yp]
         }
       
-    function selectionSort(arr,  n)
-        {
+    function selectionSort(arr,  n){
+
             var i, j, min_idx;       
             // One by one move boundary of unsorted subarray
             for (i = 0; i < n-1; i++)
@@ -49,14 +48,13 @@ sortValues = function(){
     var nl = randomArray.length;
     selectionSort(randomArray, nl);
     
-        //document.write("Sorted array: <br>");
-        printArray(array, nl);
+
     }    
 
-var showValuesButton = document.getElementById("Load")
+var showValuesButton = document.getElementById("load")
 showValuesButton.onclick = function(){showValues()}
 
-var sortValuesButton = document.getElementById("Sort")
+var sortValuesButton = document.getElementById("sort")
 sortValuesButton.onclick = function(){sortValues()}
 
 
