@@ -17,13 +17,34 @@ function drawCircle(){
    ctx.stroke();
 }
 
+//clering canvas in order to replace all befor drawed circles
 function clear(){
-   ctx.clearRect(0,0,canvas.width, canvas.height);
+   ctx.clearRect(0, 0, canvas.width, canvas.height);
 };
 
 function newPos(){
    circle.x += circle.dx;
    circle.y += circle.dy;
+   detectWalls();
+}
+
+
+function detectWalls() {
+   if(circle.x < 0){
+      circle.x = 0;
+   }
+
+   if(circle.x + circle.w > canvas.width){
+      circle.x = canvas.width - circle.size;
+   }
+
+   if(circle.y < 0){
+      circle.y = 0;
+   }
+
+   if(circle.y + circle.height > canvas.height){
+      circle.y = canvas.height - circle.size;
+   }
 }
 
 function move(){
