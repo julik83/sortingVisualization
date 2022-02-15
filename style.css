@@ -2,8 +2,18 @@
    box-sizing: border-box;
 }
 
+#myDiv {
+   height: 14em;
+}
+
 body {
    background-color: darkgrey;
+}
+
+p {
+   height: 1em;
+   padding: 0;
+   margin: 0.3em;
 }
 
 #load{
