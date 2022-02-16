@@ -1,5 +1,6 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+ctx.fillRect(20, 20, 50, 40);
 
 const circle = {
    x: 20,
@@ -9,6 +10,7 @@ const circle = {
    dx: 0,
    dy: 0,
 };
+
 
 
 function drawCircle(){
@@ -92,7 +94,7 @@ function keyLeave(e) {
          circle.dy = 0;
       }
    }
-move();
+//move();
 
 document.addEventListener('keydown',keyPress);
 document.addEventListener('keyup',keyLeave);

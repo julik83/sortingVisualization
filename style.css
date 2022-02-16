@@ -31,3 +31,10 @@ p {
    background: white;
    border-radius: 5px;
 }
+
+#sortingGraphC{
+   margin-top:30px;
+   border: 2px solid black;
+   background: white;
+   border-radius: 5px;
+}
