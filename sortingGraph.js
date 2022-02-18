@@ -37,7 +37,7 @@ sortValues = function(){
 
            var i, j, min_idx;       
            // One by one move boundary of unsorted subarray
-           for (i = 0; i < 1; i++)
+           for (i = 0; i < n-1; i++)
            {
                // Find the minimum element in unsorted array        
                min_idx = i;                
@@ -56,17 +56,7 @@ sortValues = function(){
 //sortValues();
 //checkForSequence();   
 
-function checkForSequence(){
-   var arrLenght = randomArray_a.length;
-   for(var i = 0; i<=arrLenght; i++){
-      if(randomArray_a[i]>randomArray_a[i+1]){
-         unsorted = true;
-         break;
-         }
-   }
-   console.log(unsorted);
-   console.log(randomArray_a);
-}
+
 
 
 
@@ -74,6 +64,19 @@ function checkForSequence(){
 function bigSort(){
    var unsorted = false;
    checkForSequence();
+   function checkForSequence(){
+      var arrLenght = randomArray_a.length;
+      for(var i = 0; i<=arrLenght; i++){
+         if(randomArray_a[i]>randomArray_a[i+1]){
+            unsorted = true;
+            break;
+            }
+         else
+            unsorted = false;
+            continue;   
+      }
+   }
+   
    if(unsorted == true){
       sortValues();
       drawSortedValues();
