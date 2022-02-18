@@ -1,6 +1,6 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-ctx.fillRect(20, 20, 50, 40);
+
 
 const circle = {
    x: 20,
@@ -18,6 +18,8 @@ function drawCircle(){
    ctx.arc(circle.x, circle.y, circle.size, 0, Math.PI * 2);
    ctx.stroke();
 }
+
+
 
 //clering canvas in order to replace all befor drawed circles
 function clear(){
@@ -94,7 +96,7 @@ function keyLeave(e) {
          circle.dy = 0;
       }
    }
-//move();
+move();
 
 document.addEventListener('keydown',keyPress);
 document.addEventListener('keyup',keyLeave);
