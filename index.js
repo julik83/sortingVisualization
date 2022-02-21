@@ -5,7 +5,6 @@ const ARRAY_LENGTH = 10                 //vytvarame hodnoty
 const randomArray = []
 
 showValues = function(){
-
     for(let i = 0; i<ARRAY_LENGTH; i++){
         randomArray.push(Math.random())
         var para = []
@@ -14,10 +13,10 @@ showValues = function(){
         para[i].innerHTML = randomArray[i];   // Insert text
         document.getElementById("myDiv").appendChild(para[i]);
         }
+        console.log(randomArray)
 }
 
 sortValues = function(){
-
     function swap(arr,xp, yp){       
         var temp = arr[xp];
         arr[xp] = arr[yp];
@@ -47,15 +46,15 @@ sortValues = function(){
     
     var nl = randomArray.length;
     selectionSort(randomArray, nl);
-    
-
-    }    
+}    
 
 var showValuesButton = document.getElementById("load")
-showValuesButton.onclick = function(){showValues()}
+showValuesButton.onclick = function(){sortValues()}
 
 var sortValuesButton = document.getElementById("sort")
-sortValuesButton.onclick = function(){sortValues()}
+sortValuesButton.onclick = function(){showValues()}
+
+
 
 
 

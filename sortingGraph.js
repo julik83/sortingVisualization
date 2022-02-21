@@ -3,7 +3,7 @@ const ctxA = canvasA.getContext('2d');
 var valueOfBigLoop = 0;
 
 /*generate values***********************/
-const ARRAY_LENGTH_a = 10;                
+const ARRAY_LENGTH_a = 300;                
 const randomArray_a = [];
 
 function sleep(milliseconds) {
@@ -22,21 +22,21 @@ makeValues = function(){
 makeValues();
 
 /*draw values into the canvas*****************/
-var s = 5;
+var s = 1;
 for(var i = 0; i <= randomArray_a.length; i++){   
-  s += 25; 
-  ctxA.fillRect(s, canvasA.height - randomArray_a[i], 15, randomArray_a[i])
+  s += 2; 
+  ctxA.fillRect(s, canvasA.height - randomArray_a[i], 1, randomArray_a[i])
 }
 
 /*sort values******************************/
-function sortValues(m){
+function sortValuesA(m){
 
    function swap(arr,xp, yp){       
        var temp = arr[xp];
        arr[xp] = arr[yp];
        arr[yp] = temp;
-      }
-     
+       
+      }    
    function selectionSort(arr,  n){
 
          var i, j, min_idx;       
@@ -79,18 +79,18 @@ function bigSort(){
    }  
 
    if(unsorted == true){
+      sleep(30)
       valueOfBigLoop += 1;
-      sortValues(valueOfBigLoop);
-      sleep(500);
+      sortValuesA(valueOfBigLoop);
       drawSortedValues();
-      bigSort();
+      requestAnimationFrame(bigSort);
    }
    else
       drawSortedValues()
 }
 
 bigSort();
-console.log(randomArray_a)
+
    
 /*draw sorted values*/
 
@@ -102,10 +102,10 @@ function drawSortedValues(){
 
    ctxA.fillRect(20,20, 50, 50);
 
-   var s = 5;
+   var s = 1;
    for(var i = 0; i <= randomArray_a.length; i++){   
-   s += 25; 
-   ctxA.fillRect(s, canvasA.height - randomArray_a[i], 15, randomArray_a[i])
+   s += 3; 
+   ctxA.fillRect(s, canvasA.height - randomArray_a[i], 1, randomArray_a[i])
    }
 }
 
