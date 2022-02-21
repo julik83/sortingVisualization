@@ -1,19 +1,25 @@
 const canvasA = document.getElementById('sortingGraphC');
 const ctxA = canvasA.getContext('2d');
-
+var valueOfBigLoop = 0;
 
 /*generate values***********************/
 const ARRAY_LENGTH_a = 10;                
 const randomArray_a = [];
 
-showValues = function(){
+function sleep(milliseconds) {
+   const date = Date.now();
+   let currentDate = null;
+   do {
+     currentDate = Date.now();
+   } while (currentDate - date < milliseconds);
+ }
+
+makeValues = function(){
    for(let i = 0; i<ARRAY_LENGTH_a; i++){
        randomArray_a.push(Math.floor(Math.random()*400))
        }
 }
-
-showValues();
-console.log(randomArray_a);
+makeValues();
 
 /*draw values into the canvas*****************/
 var s = 5;
@@ -22,44 +28,39 @@ for(var i = 0; i <= randomArray_a.length; i++){
   ctxA.fillRect(s, canvasA.height - randomArray_a[i], 15, randomArray_a[i])
 }
 
-
 /*sort values******************************/
-sortValues = function(){
+function sortValues(m){
 
    function swap(arr,xp, yp){       
        var temp = arr[xp];
        arr[xp] = arr[yp];
        arr[yp] = temp;
       }
-   
-   
+     
    function selectionSort(arr,  n){
 
-           var i, j, min_idx;       
-           // One by one move boundary of unsorted subarray
-           for (i = 0; i < n-1; i++)
-           {
+         var i, j, min_idx;       
+         // One by one move boundary of unsorted subarray
+         //change to 1 does one iteration but.........../
+         //problem je v tom ze loop najde najnizsiu hodnotu a da ju na prve miesto potom vykreslim graf ale ked je funkcia zavolana znova tak loop zacina znova na prvom mieste a nizsiu hodnotu nenajde, naproti tomu funkcia check for sequence vzdy najde nezrovnalosti a preto vznikne nekonecny program.  
+         
+            for (i = m-1; i < m; i++)                       
+            {
                // Find the minimum element in unsorted array        
                min_idx = i;                
                for (j = i + 1; j < n; j++){
-                   if (arr[j] < arr[min_idx])
-                       min_idx = j
+                  if (arr[j] < arr[min_idx])
+                     min_idx = j
                }
-               // Swap the found minimum element with the first element
-               swap(arr,min_idx, i)
-           }
-       }
-   
+                  // Swap the found minimum element with the first element
+                  swap(arr,min_idx, i)
+            }        
+      }
    var nl = randomArray_a.length;
    selectionSort(randomArray_a, nl);
    }
 //sortValues();
 //checkForSequence();   
-
-
-
-
-
 
 function bigSort(){
    var unsorted = false;
@@ -75,10 +76,12 @@ function bigSort(){
             unsorted = false;
             continue;   
       }
-   }
-   
+   }  
+
    if(unsorted == true){
-      sortValues();
+      valueOfBigLoop += 1;
+      sortValues(valueOfBigLoop);
+      sleep(500);
       drawSortedValues();
       bigSort();
    }
@@ -87,12 +90,8 @@ function bigSort(){
 }
 
 bigSort();
-
 console.log(randomArray_a)
    
-
-
-
 /*draw sorted values*/
 
 function drawSortedValues(){
@@ -109,11 +108,6 @@ function drawSortedValues(){
    ctxA.fillRect(s, canvasA.height - randomArray_a[i], 15, randomArray_a[i])
    }
 }
-
-
-
-
-
 
 
 /*ctx.stroke;
