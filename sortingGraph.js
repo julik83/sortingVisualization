@@ -22,11 +22,12 @@ makeValues = function(){
 makeValues();
 
 /*draw values into the canvas*****************/
-var s = 1;
-for(var i = 0; i <= randomArray_a.length; i++){   
-  s += 2; 
-  ctxA.fillRect(s, canvasA.height - randomArray_a[i], 1, randomArray_a[i])
-}
+
+   var s = 1;
+   for(var i = 0; i <= randomArray_a.length; i++){   
+   s += 2; 
+   ctxA.fillRect(s, canvasA.height - randomArray_a[i], 1, randomArray_a[i])
+   }
 
 /*sort values******************************/
 function sortValuesA(m){
@@ -35,7 +36,6 @@ function sortValuesA(m){
        var temp = arr[xp];
        arr[xp] = arr[yp];
        arr[yp] = temp;
-       
       }    
    function selectionSort(arr,  n){
 
@@ -90,10 +90,8 @@ function bigSort(){
 }
 
 bigSort();
-
-   
+  
 /*draw sorted values*/
-
 function drawSortedValues(){
    function cleanup(){
       ctxA.clearRect(0, 0, canvasA.width, canvasA.height);
