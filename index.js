@@ -48,10 +48,10 @@ sortValues = function(){
     selectionSort(randomArray, nl);
 }    
 
-var showValuesButton = document.getElementById("load")
+var showValuesButton = document.getElementById("sort")
 showValuesButton.onclick = function(){sortValues()}
 
-var sortValuesButton = document.getElementById("sort")
+var sortValuesButton = document.getElementById("load")
 sortValuesButton.onclick = function(){showValues()}
 
 

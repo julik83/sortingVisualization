@@ -30,39 +30,41 @@ makeValues();
    }
 
 /*sort values******************************/
-function sortValuesA(m){
+function sortValuesA(){
 
    function swap(arr,xp, yp){       
        var temp = arr[xp];
        arr[xp] = arr[yp];
        arr[yp] = temp;
+       //sleep(40)
+       drawSortedValues();
       }    
-   function selectionSort(arr,  n){
+      function selectionSort(arr,  n){
 
          var i, j, min_idx;       
          // One by one move boundary of unsorted subarray
-         //change to 1 does one iteration but.........../
-         //problem je v tom ze loop najde najnizsiu hodnotu a da ju na prve miesto potom vykreslim graf ale ked je funkcia zavolana znova tak loop zacina znova na prvom mieste a nizsiu hodnotu nenajde, naproti tomu funkcia check for sequence vzdy najde nezrovnalosti a preto vznikne nekonecny program.  
-         
-            for (i = m-1; i < m; i++)                       
-            {
-               // Find the minimum element in unsorted array        
-               min_idx = i;                
-               for (j = i + 1; j < n; j++){
-                  if (arr[j] < arr[min_idx])
+         for (i = 0; i < n-1; i++)
+         {
+             // Find the minimum element in unsorted array        
+             min_idx = i;                
+             for (j = i + 1; j < n; j++){
+                 if (arr[j] < arr[min_idx])
                      min_idx = j
-               }
-                  // Swap the found minimum element with the first element
-                  swap(arr,min_idx, i)
-            }        
-      }
+             }
+             // Swap the found minimum element with the first element
+             swap(arr,min_idx, i)
+             requestAnimationFrame(selectionSort);
+         }
+     }
    var nl = randomArray_a.length;
-   selectionSort(randomArray_a, nl);
+   selectionSort(randomArray_a, nl); 
    }
+
+   sortValuesA();
 //sortValues();
 //checkForSequence();   
 
-function bigSort(){
+/*function bigSort(){
    var unsorted = false;
    checkForSequence();
    function checkForSequence(){
@@ -89,7 +91,7 @@ function bigSort(){
       drawSortedValues()
 }
 
-bigSort();
+bigSort();*/
   
 /*draw sorted values*/
 function drawSortedValues(){
