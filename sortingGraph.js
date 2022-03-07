@@ -1,4 +1,4 @@
-////master branch working everithing fine////
+////everything branch////
 const canvasA = document.getElementById('sortingGraphC');
 const ctxA = canvasA.getContext('2d');
 var valueOfBigLoop = 0;
