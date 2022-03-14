@@ -41,9 +41,11 @@ function drawValues(){
 /*this function is redrawing values after each run of sortValuesA() and is called by BigSort()*/ 
 function drawSortedValues(){
    cleanup();
-   //here will be other function that will overvrite the canvas with new positions two bars currently changing the position//
+   /*https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors*/
    var s = 10;
-   for(var i = 0; i <= randomArray_a.length; i++){    
+
+   for(var i = 0; i <= randomArray_a.length; i++){
+   ctxA.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * randomArray_a[i]) + ', ' + Math.floor(255 - 42.5 * (randomArray_a[i])/2) + ',' + 0 +')';       
    ctxA.fillRect(s, canvasA.height - randomArray_a[i], 1, randomArray_a[i])
    s += 3;
    }
