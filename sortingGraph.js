@@ -1,6 +1,6 @@
 const canvasA = document.getElementById('sortingGraphC');
 const ctxA = canvasA.getContext('2d');
-const ARRAY_LENGTH_a = 300;
+const countOfValues = 900;
 
 
 /*variable type changed from cost to var in order to have possibility to asign empty array befor loading new values*/               
@@ -20,34 +20,21 @@ function cleanup(){
    }
 /*function to generate values called by drawValues()*/
 function makeValues(){
-   randomArray_a = []
-   for(let i = 0; i<ARRAY_LENGTH_a; i++){
+   randomArray_a.length = 0;
+   for(let i = 0; i<countOfValues; i++){
        randomArray_a.push(Math.floor(Math.random()*400))
        }
 }
 
-/*draw values into the canvas called by onclick ebvent button load*****************/
-function drawValues(){
-   cleanup()
-   makeValues()
-   var s = 10;
-   for(var i = 0; i <= randomArray_a.length; i++){   
-   s += 3; 
-   ctxA.fillRect(s, canvasA.height - randomArray_a[i], 1, randomArray_a[i])
-   }
-}
-
-
 /*this function is redrawing values after each run of sortValuesA() and is called by BigSort()*/ 
-function drawSortedValues(){
+function drawValues(){
    cleanup();
    /*https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors*/
    var s = 10;
-
    for(var i = 0; i <= randomArray_a.length; i++){
-   ctxA.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * randomArray_a[i]) + ', ' + Math.floor(255 - 42.5 * (randomArray_a[i])/2) + ',' + 0 +')';       
-   ctxA.fillRect(s, canvasA.height - randomArray_a[i], 1, randomArray_a[i])
-   s += 3;
+         ctxA.fillStyle = 'rgb(' + Math.floor((randomArray_a[i]*0.7)) + ',' + 255 + ',' + 0 +')';    
+      ctxA.fillRect(s, canvasA.height - randomArray_a[i], 1, randomArray_a[i])
+      s += 1;
    }
 }
 //IMPORTANT COMMENT//
@@ -98,19 +85,19 @@ function bigSort(){
    }  
    //condition which decides if the sorting has to continue or not in case the array is sorted 
    if(sorted == false){
-      sleep(30)
+      sleep(10)
       valueOfBigLoop += 1;
       sortValuesA(valueOfBigLoop);
-      drawSortedValues();
+      drawValues();
       requestAnimationFrame(bigSort);
    }
    else
       drawSortedValues()
 }
 
-/*buttons*/
+
 var showValuesButton = document.getElementById("load")
-showValuesButton.onclick = function(){drawValues()}
+showValuesButton.onclick = function(){makeValues();drawValues()}
 
 var sortValuesButton = document.getElementById("sort")
 sortValuesButton.onclick = function(){valueOfBigLoop = 0;bigSort()}
