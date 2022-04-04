@@ -1,30 +1,49 @@
-* {
-   box-sizing: border-box;
-}
-
-#myDiv {
-   height: 14em;
-}
 
 body {
    background-color: darkgrey;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
-p {
-   height: 1em;
-   padding: 0;
-   margin: 0.3em;
+header{
+   position: absolute;
+   margin:auto;
+   left: 0;
+   right: 0;
+   top: 5%;
+   bottom: 0;
+   text-align: center;
+
+}
+
+section {
+   width: 950px;
+   height: 600px;
+   position: absolute;
+   margin:auto;
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
 }
 
 #load{
-   padding: 10px;
+   width: 50px;
+   height: 37px;
+   text-align: center;
+   border-radius: 5px;
 }
 
 #sort{
-   padding: 10px;
+   width: 50px;
+   height: 37px;
+   text-align: center;
+   border-radius: 5px;
 }
 
 #sortingGraphC{
+   display: block;
+   margin-left: auto;
+   margin-right: auto; 
    margin-top:30px;
    border: 2px solid black;
    background: white;

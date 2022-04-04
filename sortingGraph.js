@@ -3,7 +3,7 @@ const ctxA = canvasA.getContext('2d');
 const countOfValues = 900;
 
 
-/*variable type changed from cost to var in order to have possibility to asign empty array befor loading new values*/               
+/*variable type changed from const to var in order to have possibility to asign empty array befor loading new values*/               
 var randomArray_a = [];
 /*function sleep used to slow down the motion of sorting in order to have nice visualization. */
 function sleep(milliseconds) {
@@ -92,7 +92,7 @@ function bigSort(){
       requestAnimationFrame(bigSort);
    }
    else
-      drawSortedValues()
+      drawValues()
 }
 
 
